@@ -6,10 +6,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 const port = process.env.PORT || 5000;
 
+require('./app/routes/bike.routes.js')(app);
 require('./app/routes/user.routes.js')(app);
+require('./app/routes/stock.routes.js')(app);
+
 mongoose.Promise = global.Promise;
 
-const uri = "mongodb+srv://newuser_123:Pass_1122@svb-xx3ci.mongodb.net/TrialAPI?retryWrites=true&w=majority";
+const uri = "mongodb+srv://newuser_123:Pass_1122@svb-xx3ci.mongodb.net/ShriVishwakarmaBajaj?retryWrites=true&w=majority";
 
 mongoose.connect(uri, { useNewUrlParser: true })
   .then(()=>{
